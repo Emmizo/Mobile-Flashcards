@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 import { purple, white,green } from "../utils/color";
-import { setLocalNotification, clearLocalNotification } from "../utils/helper";
+import { setNotification, clearNotification } from "../utils/helper";
 
 class ShowDeck extends Component {
 
@@ -17,8 +17,8 @@ class ShowDeck extends Component {
     handleTakeQuiz = (deckId) => {
         this.props.navigation.push("Quiz", { deckId: deckId })
 
-        clearLocalNotification()
-            .then(setLocalNotification)
+        clearNotification()
+            .then(setNotification)
     }
 
     render() {
@@ -84,9 +84,9 @@ const styles = StyleSheet.create({
 });
 
 
-function mapStateToProps(decks) {
+function mapState(decks) {
     return {
         decks
     }
 }
-export default connect(mapStateToProps)(ShowDeck)
+export default connect(mapState)(ShowDeck)

@@ -9,13 +9,13 @@ export const __getDecks = () => {
     })
 }
 
-export const __AddDeck = (deck, key) => {
+export const __AddDecks = (deck, key) => {
     return AsyncStorage.mergeItem(CARD_STORAGE_KEY, JSON.stringify({
         [key]: deck
     })).catch((err) => console.log('error occured', err))
 }
 
-export const __AddCardToDeck = (card, deckId) => {
+export const __AddCardToDecks = (card, deckId) => {
     __getDecks().then(result => {
         let data = result
         data[deckId] = {

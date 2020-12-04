@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 import { connect } from "react-redux";
-import { purple,green } from "../utils/color";
+import { green } from "../utils/color";
 
 const handleDeck = (props) => {
     props.navigator.push("DisplayDeck", { deckId: props.id, deckTitle: props.deck.title })
@@ -38,9 +38,9 @@ const styles = StyleSheet.create({
     }
 })
 
-function mapStateToProps(decks, { id }) {
+function mapState(decks, { id }) {
     return {
         deck: decks[id]
     }
 }
-export default connect(mapStateToProps)(DeckCard)
+export default connect(mapState)(DeckCard)

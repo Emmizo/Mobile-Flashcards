@@ -2,9 +2,9 @@ import React, { Component } from "react";
 import { View, Text, TextInput, TouchableOpacity, StyleSheet } from "react-native";
 import { connect } from "react-redux";
 import { addQuetionToDeck } from "../redux/actions";
-import { setLocalNotification, clearLocalNotification } from "../utils/helper";
-import { __AddCardToDeck } from "../utils/api";
-import { white, purple,green } from "../utils/color";
+import { setNotification, clearNotification } from "../utils/helper";
+import { __AddCardToDecks } from "../utils/api";
+import { white,green } from "../utils/color";
 
 class AddCard extends Component {
     state = {
@@ -21,10 +21,10 @@ class AddCard extends Component {
         const { navigation, dispatch } = this.props
         const deckId = this.props.navigation.getParam('deckId')
         dispatch(addQuetionToDeck({ question, answer }, deckId))
-        __AddCardToDeck({ question, answer }, deckId)
+        __AddCardToDecks({ question, answer }, deckId)
 
-        clearLocalNotification()
-            .then(setLocalNotification)
+        clearNotification()
+            .then(setNotification)
 
         navigation.navigate("DisplayDeck", deckId)
     }

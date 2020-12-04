@@ -2,9 +2,9 @@ import React, { Component } from "react";
 import { View, Text, TextInput, TouchableOpacity, StyleSheet } from "react-native";
 import { connect } from "react-redux";
 import { addDeck } from "../redux/actions";
-import { __AddDeck } from "../utils/api";
+import { __AddDecks } from "../utils/api";
 import * as helper from "../utils/helper";
-import { purple, white,green } from "../utils/color";
+import { white,green } from "../utils/color";
 
 class AddDecks extends Component {
 
@@ -31,7 +31,7 @@ class AddDecks extends Component {
             questions: []
         }
         dispatch(addDeck(newDeck, deckKeys))
-        __AddDeck(newDeck, deckKeys)
+        __AddDecks(newDeck, deckKeys)
         this.toViewDeck(deckKeys)
         this.setState(() => ({
             title: ''

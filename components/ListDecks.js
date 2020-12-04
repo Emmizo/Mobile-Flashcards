@@ -33,10 +33,10 @@ const styles = StyleSheet.create({
     }
 });
 
-function mapStateToProps(decks) {
+function mapState(decks) {
 
     return {
         deckId: Object.keys(decks)
     }
 }
-export default connect(mapStateToProps)(ListDecks)
+export default connect(mapState)(ListDecks)

@@ -8,7 +8,7 @@ export function generateKey  () {
 }
 
 
-export function clearLocalNotification () {
+export function clearNotification () {
     return AsyncStorage.removeItem(NOTIFICATION_KEYS)
       .then(Notifications.cancelAllScheduledNotificationsAsync)
   }
@@ -29,7 +29,7 @@ export function clearLocalNotification () {
     }
   }
   
-  export function setLocalNotification () {
+  export function setNotification () {
     
     AsyncStorage.getItem(NOTIFICATION_KEYS)
       .then(JSON.parse)

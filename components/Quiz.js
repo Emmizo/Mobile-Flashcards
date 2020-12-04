@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { View, Text, TextInput, TouchableOpacity, StyleSheet, Animated } from "react-native";
 import { connect } from "react-redux";
 import { purple, white,red,green } from "../utils/color";
-import { setLocalNotification, clearLocalNotification } from "../utils/helper";
+import { setNotification, clearNotification } from "../utils/helper";
 
 class Quiz extends Component {
     state = {
@@ -23,7 +23,7 @@ class Quiz extends Component {
     componentDidUpdate(){
         const { currentMyQuestion, numberOfQuestions } = this.state
         if (currentMyQuestion > numberOfQuestions) {
-            clearLocalNotification().then(setLocalNotification)
+            clearNotification().then(setNotification)
         }
     }
 
@@ -207,10 +207,10 @@ const styles = StyleSheet.create({
     }
   });
 
-function mapStateToProps(decks) {
+function mapState(decks) {
     return {
         decks
     }
 }
 
-export default connect(mapStateToProps)(Quiz)
+export default connect(mapState)(Quiz)

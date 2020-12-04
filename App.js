@@ -11,7 +11,7 @@ import * as api from "./utils/api"
 import examData from './utils/Data'
 import { FontAwesome5, Entypo } from "@expo/vector-icons"
 import { green } from './utils/color'
-import { setLocalNotification } from "./utils/helper"
+import { setNotification } from "./utils/helper"
 import ListAllDecks from "./components/ListDecks"
 import DisplayAllDecks from "./components/ShowDecks"
 import CreateNewCards from './components/CreateCards'
@@ -24,7 +24,7 @@ const myTabs = createBottomTabNavigator({
     Home: {
         screen: ListAllDecks,
         navigationOptions: {
-            tabBarIcon: () => < FontAwesome5 name = "list"
+            tabBarIcon: () => < FontAwesome5 name = "home"
             size = { 30 }
             color = { green }
             />
@@ -85,7 +85,7 @@ export default class App extends Component {
             }
             store.dispatch(getDecks(result))
         })
-        setLocalNotification()
+        setNotification()
     }
 
     render() {
